@@ -16,6 +16,22 @@ class App extends React.Component {
   
   }
 
+  componentDidMount () {
+    const savedFilter=localStorage.getItem("filter");
+    if (savedFilter !==null){
+      const filter=JSON.parse(savedFilter);
+    this.setState({
+      filter,
+    })
+  }};
+  
+  
+    componentDidUpdate(prevProps, prevState) {
+      if(prevState.filter !==this.state.filter){
+  
+  localStorage.setItem("filter", JSON.stringify(this.state.filter))
+  } }
+
   addContact = newContact => {
     
     const {name, number} = newContact;
@@ -41,7 +57,6 @@ class App extends React.Component {
   
 
 
-
   deleteContact = contactId => {
     this.setState(prevState => ({
       contacts: prevState.contacts.filter(contact => contact.id !== contactId)
@@ -58,7 +73,10 @@ this.setState(prevState => ({
 
 
 
-
+  resetFilter=()=>{
+    this.setState({filter: ''})
+  };
+  
 
   
 
@@ -78,6 +96,7 @@ this.setState(prevState => ({
         <Filter 
         name={this.state.filter}
         changeContact={this.changeContact}
+        onReset={this.resetFilter}
         />
         <ContactList
   

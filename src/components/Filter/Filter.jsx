@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import {FilterStyle} from './Filter.styled';
 
 
-const Filter = ({ name, changeContact}) => {
+const Filter = ({ name, changeContact, onReset}) => {
     
 return(
 <FilterStyle>
@@ -18,7 +18,7 @@ return(
     }
     placeholder='Filter'
 />
-    
+    <button onClick={onReset}>Reset filter</button>
 </FilterStyle>
 
 
@@ -28,6 +28,7 @@ return(
 Filter.propTypes = {
     name: PropTypes.string.isRequired,
     changeContact: PropTypes.func.isRequired,
+    onReset: PropTypes.func.isRequired,
   };
 
 
