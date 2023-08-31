@@ -20,8 +20,6 @@ return(
 />
     <button onClick={onReset}>Reset filter</button>
 </FilterStyle>
-
-
 )
 }
 
