@@ -27,6 +27,7 @@ Filter.propTypes = {
     name: PropTypes.string.isRequired,
     changeContact: PropTypes.func.isRequired,
     onReset: PropTypes.func.isRequired,
+   
   };
 
 
