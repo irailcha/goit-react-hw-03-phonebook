@@ -17,19 +17,19 @@ class App extends React.Component {
   }
 
   componentDidMount () {
-    const savedFilter=localStorage.getItem("filter");
+    const savedFilter=localStorage.getItem("contacts");
     if (savedFilter !==null){
-      const filter=JSON.parse(savedFilter);
+      const contact=JSON.parse(savedFilter);
     this.setState({
-      filter,
+      contact,
     })
   }};
   
   
     componentDidUpdate(prevProps, prevState) {
-      if(prevState.filter !==this.state.filter){
+      if(prevState.contacts !==this.state.contacts){
   
-  localStorage.setItem("filter", JSON.stringify(this.state.filter))
+  localStorage.setItem("contacts", JSON.stringify(this.state.contacts))
   } }
 
   addContact = newContact => {
